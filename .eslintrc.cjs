@@ -20,4 +20,31 @@ module.exports = {
       { allowConstantExport: true },
     ],
   },
+  overrides: [
+    {
+      files: ['*.js', '*.jsx', '*.ts', '*.tsx'],
+      rules: {
+        'simple-import-sort/imports': [
+          'error',
+          {
+            groups: [
+              ['^react', '^\\w', '^@hookform', '^@radix-ui'],
+              ['^@store(/.*|$)'],
+              ['^@components(/.*|$)'],
+              ['^@ui(/.*|$)'],
+              ['^@lib(/.*|$)'],
+              ['^@pages(/.*|$)'],
+              ['^@utils(/.*|$)'],
+              ['^@hooks(/.*|$)'],
+              ['^@services(/.*|$)'],
+              ['^\\u0000'],
+              ['^\\.\\.(?!/?$)', '^\\.\\./?$'],
+              ['^\\./(?=.*/)(?!/?$)', '^\\.(?!/?$)', '^\\./?$'],
+              ['^.+\\.?(css)$'],
+            ],
+          },
+        ],
+      }
+    }
+  ]
 };
